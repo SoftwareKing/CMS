@@ -1,0 +1,119 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+
+
+#container {
+	width:1034px;
+	position:absolute;
+	left:50%;
+	margin-left:-517px;
+	border:1px solid #999;
+	height:648px;
+}
+#top {
+	width:1034px;
+	height:81px;
+	background:url("img/login_top.jpg") no-repeat;
+}
+
+#loginBar {
+	width:1034px;
+	height:30px;
+	background:url("img/login_bar.jpg") no-repeat;
+	font-size:12px;
+	color:#0d314d;
+}
+#loginBar span {
+	position:relative;
+	top:8px;
+	left:10px;
+}
+#content {
+	width:1034px;
+	height:538px;
+	background:url("img/login_content.jpg") no-repeat;
+	font-size:12px;
+}
+#loginForm {
+	width:390px;
+	height:164px;
+	position:relative;
+	left:563px;
+	top:248px;
+}
+#loginTable {
+	position:relative;
+	top:5px;
+	
+}
+
+*.errorContainer {
+	color:#555;
+	padding:0px 4px;
+}
+.userName {
+	background:url(img/mylogin/userName_success.gif) no-repeat;
+	border:0px;
+	width:165px;
+	height:19px;
+	line-height:17px;
+	padding-left:25px;
+}
+.userName_focus {
+	background:url(img/mylogin/userName_focus.gif) no-repeat;
+	border:0px;
+	width:165px;
+	height:19px;
+	line-height:17px;
+	padding-left:25px;
+}
+.password {
+	background:url(img/mylogin/password_success.gif) no-repeat;
+	border:0px;
+	width:165px;
+	height:19px;
+	line-height:17px;
+	padding-left:25px;
+}
+.password_focus {
+	background:url(img/mylogin/password_focus.gif) no-repeat;
+	border:0px;
+	width:165px;
+	height:19px;
+	line-height:17px;
+	padding-left:25px;
+}
+.validate {
+	background:url(img/mylogin/validate_success.gif) no-repeat;
+	border:0px;
+	width:75px;
+	height:19px;
+	line-height:17px;
+	padding-left:23px;
+	letter-spacing: 3px;
+}
+.validate_focus {
+	background:url(img/mylogin/validate_focus.gif) no-repeat;
+	border:0px;
+	width:75px;
+	height:19px;
+	line-height:17px;
+	padding-left:23px;
+	letter-spacing: 3px;
+}
+.submit {
+	background:url(img/mylogin/login_btn.gif) no-repeat;
+	width:67px;
+	height:26px;
+	border:0;
+	cursor:pointer;
+}
+.reset {
+	background:url(img/mylogin/btn_reset.gif) no-repeat;
+	width:67px;
+	height:26px;
+	border:0;
+	cursor:pointer;
+}

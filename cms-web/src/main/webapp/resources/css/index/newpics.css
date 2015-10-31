@@ -1,0 +1,31 @@
+#slider{
+position: relative; 
+width:251px; 
+height:259px; 
+background:#FFF;
+} /*可以修改宽高*/
+#slider img{
+position:absolute; 
+top:0; left:0; 
+display:none; 
+width:251px; 
+height:259px;
+}
+/*可以修改宽高*/
+.nivoSlider{position:relative;overflow: hidden;}
+.nivoSlider img{position:absolute; top:0px; left:0px}
+.nivoSlider a.nivo-imageLink{position:absolute; top:0px;display:block;left:0px;width:990px;height:334px;border:0;padding:0;margin:0;z-index:6;}/*可以修改宽高*/
+.nivo-slice {display:block;position:absolute;z-index:5;height:100%;}
+.nivo-box {display:block;position:absolute;z-index:5;}
+.nivo-caption{position:absolute; left:0; bottom:0; background:#000;width:251px; z-index:50; height: 23px; }/*可以修改宽高*/
+.nivo-caption p{width:251px;height: 40px; text-indent: -9999px}/*可以修改宽高*/
+.nivo-controlNav{
+position:absolute; left:34.2%; bottom:1px; z-index: 100;
+}/*可以修改左右上下间距*/
+.nivo-controlNav a{position:relative; z-index:99; cursor:pointer;background:#074d91}
+.nivo-controlNav a.active{background:#ff6400;font-weight:bold}
+.nivo-controlNav a{display:block; color: #fff; width:30px; height:20px; line-height: 20px; text-align: center; margin-right:3px; float:left; overflow: hidden;}/*可以修改宽高*/
+.nivo-directionNav a {position:absolute;top:45%;z-index:9;cursor:pointer;}   /*左右切换按钮，不能删除，如果不需要可以设背景，删除会引起图片错位*/
+.nivo-directionNav a {display:block;width:30px;height:30px;text-indent:-9999px;border:0;}
+a.nivo-nextNav {right:15px;}
+a.nivo-prevNav {left:15px;}

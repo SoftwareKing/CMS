@@ -1,0 +1,312 @@
+/* CSS Document */
+body
+{
+	font-family: "ËÎÌו";
+	font-size: 12px;
+	color: #FFFFFF;
+}
+*
+{
+	margin: 0px;
+	padding: 0px;
+}
+ul li
+{
+	list-style: none;
+}
+img
+{
+	border: none;
+}
+.MyNewpics
+{
+	width: 271px;
+	float: left;
+	margin: 0px;
+	padding: 0px;
+}
+
+#rollpic {
+	width:1000px;
+	height:199px;
+}
+
+#rollCaption {
+	position: absolute;
+	background:#000;
+	color:#fff;
+	width:100%;
+	bottom:0px;
+	z-index:999;
+	height:35px;
+	display: none;
+}
+#rollCaption span {
+	position: relative;
+	top:10px;
+	left:10px;
+}
+#rollPager {
+	position:absolute;
+	z-index:9999;
+	right:5px;
+	bottom:-10px;
+}
+#rollPager span {
+	font-size:30px;
+	display:block;
+	float:left;
+	color:#999;
+	cursor:pointer;
+	padding:2px;
+}
+#rollPager span.cycle-pager-active {
+	color:#3a4;
+}
+
+a
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+a:hover
+{
+	color: #ffff00;
+}
+.clear
+{
+	clear: both;
+	overflow: hidden;
+	height: 0;
+}
+#warp
+{
+	width: 1000px;
+	margin: auto;
+	background-color: #003174;
+	
+}
+
+.menu
+{
+	
+	height: 68px;
+	background: url("menu-bj.jpg") no-repeat;
+	padding-left:10px;
+   
+	
+}
+/* menu styles */
+#jsddm
+{
+	position:absolute;
+	margin: 0;
+	padding: 0;
+	z-index:1000;
+}
+#jsddm li
+{
+	float: left;
+	list-style: none;
+	font: 12px Tahoma, Arial;
+	z-index:2;
+}
+#jsddm li a
+{
+	display: block;
+	padding-top: 20px;
+	padding-left: 15px;
+	text-decoration: none;
+	text-align: center;
+	width: 73px;
+	color: #fff;
+	white-space: nowrap;
+	font-weight: bold;
+	font-size: 14px;
+}
+#jsddm li a:hover
+{
+	width: 73px;
+	display: block;
+	padding-top: 20px;
+	background-image: url("menu-hover.jpg");
+	background-repeat: no-repeat;
+	background-position: 13px 16px;
+
+}
+#jsddm li ul
+{
+	margin: 0;
+	padding: 0;
+	position: absolute;	
+	visibility: hidden;
+	border-top:1px solid #82C7FE;
+	border-left:1px solid #82C7FE;
+	border-right:1px solid #82C7FE;
+}
+#jsddm li ul li
+{
+	float: none;
+	padding: 0;
+	
+}
+#jsddm li ul li a
+{
+	display: block;
+	font-size: 12px;
+	padding: 0;
+	background: none;
+	background: #003174;
+	color: #FFFF00;
+	border-bottom: 1px solid #82C7FE;
+	padding: 0 2px;
+	height: auto;
+	line-height: 20px;
+	white-space: normal;
+	font-weight: normal;
+	width:100px;
+}
+#jsddm li ul li a:hover
+{
+	font-size: 12px;
+	padding: 0;
+	background: none;
+	background: #184d99;
+	height: auto;
+	line-height: 20px;
+	color: #fff;
+	border-bottom: 1px solid #82C7FE;
+	padding: 0 2px;
+	white-space: normal;
+	font-weight: normal;
+	width:100px;
+}
+.home
+{
+	padding-left: 30px;
+}
+.ss
+{
+	height: 64px;
+	background: url(ss-bj.jpg) no-repeat;
+	line-height: 28px;
+	color: #FFFFFF;
+}
+#sz
+{
+	font-family: "ËÎÌו";
+	font-size: 14px;
+  	color: #FFFFFF;
+}
+
+.content
+{
+	width: 984px;
+	padding: 0px 6px 30px 6px;
+}
+
+.zxdt
+{
+	width: 338px;
+	float: left;
+	margin: 0px 20px 0px 15px;
+}
+.xsxx
+{
+	width: 338px;
+	float: left;
+}
+.bt
+{
+	height: 24px;
+	border-bottom: 1px solid #6f88a9;
+}
+.zi_zw
+{
+	float: left;
+	font-weight: bold;
+	color: #FFFF00;
+}
+.zi_yw
+{
+	float: left;
+	font-weight: bold;
+	color: #FFFF00;
+	padding-left: 6px;
+	font-size: 12px;
+	text-transform: uppercase;
+}
+.zi_gd
+{
+	float: right;
+	padding-right: 10px;
+}
+.zi_gd a
+{
+	color: #FFFFFF;
+}
+.zi_gd a:hover
+{
+	color: #FFFF00;
+}
+.nr
+{
+	padding-top: 10px;
+	color: #FFFFFF;
+	
+  	
+}
+
+.nr tr td
+{
+	border-bottom: 1px dashed #335a90;
+	font-family: "ËÎÌו";
+	font-size: 12px;
+}
+.nr a
+{
+	line-height: 27px;
+}
+.yqlj
+{
+	margin-top: 30px;
+}
+.yqlj_nr
+{
+	padding: 10px;
+}
+
+.fk
+{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+/***************************************************************************************/
+A.applink:hover {
+	border: 2px dotted #DCE6F4;
+	padding: 2px;
+	background-color: #ffff00;
+	color: green;
+	text-decoration: none
+}
+
+A.applink {
+	border: 2px dotted #DCE6F4;
+	padding: 2px;
+	color: #2F5BFF;
+	background: transparent;
+	text-decoration: none
+}
+
+A.info {
+	color: #2F5BFF;
+	background: transparent;
+	text-decoration: none
+}
+
+A.info:hover {
+	color: green;
+	background: transparent;
+	text-decoration: underline
+}

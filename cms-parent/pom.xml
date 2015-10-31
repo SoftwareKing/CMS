@@ -1,0 +1,256 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.xujin.cms</groupId>
+  <artifactId>cms-parent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <modules>
+  	<module>../cms-core</module>
+  	<module>../cms-web</module>
+  	<module>../cms-user</module>
+  	<module>../cms-topic</module>
+  	<module>../cms-common</module>
+  	<module>../cms-hibernate</module>
+  </modules>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <spring.version>4.1.8.RELEASE</spring.version>
+    <hibernate.version>4.3.8.Final</hibernate.version>
+    <mysqldriver.version>5.1.24</mysqldriver.version>
+    <hibernate-validator.version>4.3.1.Final</hibernate-validator.version>
+    <commons-dbcp.version>1.4</commons-dbcp.version>
+    <spring-webmvc.version>4.1.8.RELEASE</spring-webmvc.version>
+    <junit.version>4.10</junit.version>
+    <freemarker.version>2.3.20</freemarker.version>
+  </properties>
+  
+  <dependencyManagement>
+  	<dependencies>
+  	     <!-- cms Start -->
+  		 <dependency>
+	      <groupId>com.xujin.cms</groupId>
+	      <artifactId>cms-common</artifactId>
+		  <version>${project.version}</version>
+	    </dependency> 
+  		<dependency>
+	      <groupId>com.xujin.cms</groupId>
+	      <artifactId>cms-hibernate</artifactId>
+		  <version>${project.version}</version>
+	    </dependency>
+	    <dependency>
+	    	<groupId>${project.groupId}</groupId>
+	    	<artifactId>cms-core</artifactId>
+	    	<version>${project.version}</version>
+	    </dependency>
+	     <dependency>
+	    	<groupId>${project.groupId}</groupId>
+	    	<artifactId>cms-user</artifactId>
+	    	<version>${project.version}</version>
+	    </dependency>
+	     <dependency>
+	    	<groupId>${project.groupId}</groupId>
+	    	<artifactId>cms-topic</artifactId>
+	    	<version>${project.version}</version>
+	    </dependency>
+	    <!-- cms end -->
+	    
+  	     <!-- spring start -->
+  	     <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- spring end -->
+		
+		<!-- Spring MVC Start -->
+		<dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-webmvc</artifactId>
+		  <version>${spring-webmvc.version}</version>
+		</dependency>
+		<!-- Spring MVC end -->
+		
+		<!-- Hibernate Start  -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate-validator.version}</version>
+		</dependency>
+		            
+  		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<!-- Hibernate End -->
+		
+		<!-- mysql Driver Start -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysqldriver.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>${commons-dbcp.version}</version>
+		</dependency>
+		<!-- mysql Driver End -->
+		
+		
+		<!-- junit start -->
+  		<dependency>
+	      <groupId>junit</groupId>
+	      <artifactId>junit</artifactId>
+		  <version>${junit.version}</version>
+		  <scope>test</scope>
+	    </dependency>
+	    <dependency>
+			<groupId>org.dbunit</groupId>
+			<artifactId>dbunit</artifactId>
+			<version>2.4.9</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.github.springtestdbunit</groupId>
+			<artifactId>spring-test-dbunit</artifactId>
+  			<version>1.0.0</version>
+  			<scope>test</scope>
+		</dependency>
+  		<!-- junit end -->
+		
+		<dependency>
+		  <groupId>org.freemarker</groupId>
+		  <artifactId>freemarker</artifactId>
+		  <version>${freemarker.version}</version>
+		</dependency>
+		
+	    <dependency>
+		  <groupId>commons-lang</groupId>
+		  <artifactId>commons-lang</artifactId>
+		  <version>2.6</version>
+		</dependency>
+	    
+	    <dependency>
+			<groupId>org.wicketstuff</groupId>
+			<artifactId>jsr303</artifactId>
+			<version>1.5-RC5.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.kenai.nbpwr</groupId>
+			<artifactId>javax-inject</artifactId>
+			<version>1.0-201002241208</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>org.easymock</groupId>
+		  <artifactId>easymock</artifactId>
+		  <version>3.1</version>
+		  <scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.7.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.directwebremoting</groupId>
+			<artifactId>dwr</artifactId>
+			<version>3.0.M1</version>
+		</dependency>
+		<dependency>
+		  <groupId>javax.servlet</groupId>
+		  <artifactId>servlet-api</artifactId>
+		  <version>2.5</version>
+		  <scope>provided</scope>
+		</dependency>
+		<dependency>
+		  <groupId>jstl</groupId>
+		  <artifactId>jstl</artifactId>
+		  <version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.2</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+		  <groupId>jsptags</groupId>
+		  <artifactId>pager-taglib</artifactId>
+		  <version>2.0</version>
+		</dependency>
+		
+		<!-- file upload Start -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+         <!-- file upload End -->
+		
+		<!-- 缩略图 -->
+		<dependency>
+		  <groupId>net.coobird</groupId>
+		  <artifactId>thumbnailator</artifactId>
+		  <version>0.4.3</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-compress</artifactId>
+			<version>1.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.samba.jcifs</groupId>
+			<artifactId>jcifs</artifactId>
+			<version>1.3.3</version>
+		</dependency>
+		
+  	</dependencies>
+  </dependencyManagement>
+  </project>
+  

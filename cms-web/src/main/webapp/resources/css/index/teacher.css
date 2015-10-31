@@ -1,0 +1,90 @@
+.left
+{
+	width: 200px;
+	float: left;
+}
+.left tr td
+{
+	border-bottom: 1px dashed #FFFFFF;
+}
+.left a
+{
+	display: block;
+	padding: 10px 0px;
+}
+.left a:hover
+{
+	font-weight: bold;
+}
+.peopleleft
+{
+	padding: 50px 0 0 30px;
+	width: 230px;
+	float: left;
+}
+.right
+{
+	width: 730px;
+	float: left;
+	margin-left: 30px;
+}
+.right_bt
+{
+	height: 26px;
+	border-bottom: 1px solid #FFFFFF;
+	font-size: 14px;
+	font-weight: bold;
+}
+.right_nr
+{
+	margin-top: 20px;
+	line-height: 24px;
+}
+.peopleright
+{
+	width: 670px;
+	float: left;
+	margin-left: 30px;
+}
+.peopleright_bt
+{
+	height: 26px;
+	border-bottom: 1px solid #FFFFFF;
+	font-size: 14px;
+	font-weight: bold;
+}
+.peopleright_nr
+{
+	margin-top: 20px;
+	line-height: 24px;
+}
+
+.foot
+{
+	height: 60px;
+	background: url(../images/foot-bj.jpg) no-repeat;
+	text-align: center;
+	padding-top: 25px;
+	line-height: 20px;
+	color: #FFFFFF;
+}
+.fk
+{
+	font-size: 18px;
+	font-weight: bold;
+}
+.ta tr td
+{
+	padding-left: 10px;
+	line-height: 30px;
+	padding-right: 10px;
+}
+.ta2
+{
+	font-family: ºÚÌå;
+	font-size: 18px;
+	color: #FFFF00;
+	border-bottom: 1px solid #FFFF00;
+	text-indent: 10px;
+	padding-top: 15px;
+}

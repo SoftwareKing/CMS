@@ -1,0 +1,9 @@
+.foot
+{
+	height: 60px;
+	background: url("foot-bj.jpg") no-repeat;
+	text-align: center;
+	padding-top: 25px;
+	line-height: 20px;
+	color: #FFFFFF;
+}

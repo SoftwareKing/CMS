@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+		http://www.directwebremoting.org/schema/spring-dwr http://www.directwebremoting.org/schema/spring-dwr-3.0.xsd">
+	
+	<mvc:annotation-driven/>
+	<mvc:default-servlet-handler/>
+	<!-- Spring MVC扫描Controller时，不扫描Service  -->
+	<context:component-scan base-package="com.xujin.cms.controller">
+	    <context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Service" />
+	</context:component-scan>
+	
+	<mvc:resources location="/resources/" mapping="/resources/**"/>
+	<mvc:resources location="/static/" mapping="/static/**"/>
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/admin/**"/>
+			<bean class="com.xujin.cms.web.AuthInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	<!--配置DWR -->
+	<!-- <dwr:controller id="dwrController" debug="false"/>
+	<dwr:annotation-config id="dwrAnnotationConfig" />
+  	<dwr:annotation-scan base-package="com.xujin.cms.dwr" scanDataTransferObject="true"/>
+  	 -->
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+	  <property value="true" name="alwaysUseFullPath"></property> 
+	  <!-- <property name="mappings">
+	    <props> 
+	      <prop key="/dwr/**/*">dwrController</prop>
+	    </props>
+	 </property>  -->
+	</bean>
+	
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="com.xujin.cms.model.CmsException">error</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- 必须加下面这段配置因为是在springmvc下的上传 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="500000000"></property>
+	</bean>
+	
+</beans>

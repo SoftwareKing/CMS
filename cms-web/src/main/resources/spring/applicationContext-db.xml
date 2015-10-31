@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-4.2.xsd
+         http://www.springframework.org/schema/aop
+         http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+         http://www.springframework.org/schema/tx 
+         http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+    <!-- 打开Spring的Annotation支持 -->
+	<context:annotation-config />
+	<!-- 设定Spring 去哪些包中找Annotation -->
+	<context:component-scan base-package="com.xujin.cms.controller" />
+	<context:component-scan base-package="com.xujin.cms.dao.*" />
+	<context:component-scan base-package="com.xujin.cms.service.*" />
+	<context:component-scan base-package="com.xujin.cms.model" />
+	<!-- Spring扫描Controller时，不扫描Controller，只扫描service  -->
+	<context:component-scan base-package="com.xujin.cms.controller">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<!-- 配置连接池的初始值 -->
+		<property name="initialSize" value="1" />
+		<!-- 连接池的最大值 -->
+		<!-- <property name="maxActive" value="500"/> -->
+		<!-- 最大空闲时，当经过一个高峰之后，连接池可以将一些用不到的连接释放，一直减少到maxIdle为止 -->
+		<!-- <property name="maxIdle" value="2"/> -->
+		<!-- 当最小空闲时，当连接少于minIdle时会自动去申请一些连接 -->
+		<property name="minIdle" value="1" />
+		<property name="maxActive" value="100" />
+		<property name="maxIdle" value="20" />
+		<property name="maxWait" value="1000" />
+                <!-- 超时自动收回 -->
+       <property name="removeAbandoned" value="true"/>
+         <!--
+                  超时时间(以秒数为单位)设置超时时间有一个要注意的地方，
+                  超时时间=现在的时间-程序中创建Connection的时间，如果
+                  maxActive比较大，比如超过100，那么removeAbandonedTimeout
+                  可以设置长一点比如180， 也就是三分钟无响应的连接进行回收，
+                  当然应用的不同设置长度也不同。
+       -->
+       <property name="removeAbandonedTimeout" value="100"/>
+       <!-- 在自动回收超时连接的时候打印连接的超时错误 -->
+       <property name="logAbandoned" value="true"/>
+       <property name="testOnBorrow" value="true"/>
+       <property name="validationQuery" value="select 1"/>
+	</bean>
+	<!--创建Spring的SessionFactory工厂 -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+	<!-- 
+	和hibernate4整合没有提供专门的针对Annotation的类，直接在LocalSessionFactoryBean中已经集成
+ -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<!-- 注入数据源 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- 设置Spring取那个包中查找相应的实体类 -->
+		<property name="packagesToScan">
+			<value>com.xujin.cms.model</value>
+		</property>
+		<!-- 指定hibernate配置文件 -->
+		<property name="configLocation" value="classpath:hibernate/hibernate.cfg.xml" />
+	</bean>
+
+	<!-- 配置Spring的事务处理 -->
+	<!-- 创建事务管理器-->
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+<!-- 配置AOP，Spring是通过AOP来进行事务管理的 -->
+	<aop:config>
+	<!-- 设置pointCut表示哪些方法要加入事务处理 -->
+	<!-- 以下的事务是声明在DAO中，但是通常都会在Service来处理多个业务对象逻辑的关系，注入删除，更新等，此时如果在执行了一个步骤之后抛出异常
+		就会导致数据不完整，所以事务不应该在DAO层处理，而应该在service，这也就是Spring所提供的一个非常方便的工具，声明式事务 -->
+		<aop:pointcut id="allMethods"
+			expression="execution(* com.xujin.cms.service.*.*(..))" />
+		<!-- 通过advisor来确定具体要加入事务控制的方法 -->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="allMethods" />
+	</aop:config>
+<!-- 配置哪些方法要加入事务控制 -->
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+		<!-- 让所有的方法都加入事务管理，为了提高效率，可以把一些查询之类的方法设置为只读的事务 -->
+			<tx:method name="*" propagation="REQUIRED" read-only="true"/>
+			<!-- 以下方法都是可能设计修改的方法，就无法设置为只读 -->
+			<tx:method name="add*" propagation="REQUIRED"/>
+			<tx:method name="del*" propagation="REQUIRED"/>
+			<tx:method name="update*" propagation="REQUIRED"/>
+			<tx:method name="save*" propagation="REQUIRED"/>
+			<tx:method name="clear*" propagation="REQUIRED"/>
+		</tx:attributes>
+	</tx:advice>
+</beans>
